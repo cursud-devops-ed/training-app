@@ -76,7 +76,7 @@ static Connection conn = null;
 
 	public static void main(String[] argv) {
  
-		try {
+		//try {
 			log("-------- Connexion au serveur de données MYSQL ------------");
 			//makeJDBCConnection();
 			log("-------- Afficher toutes les sessions de formations ------------");
@@ -85,10 +85,10 @@ static Connection conn = null;
 			//statement.close();
 			//conn.close(); // Fermer la connexion
  
-		} catch (SQLException e) {
+		//} catch (SQLException e) {
  
-			e.printStackTrace();
-		}
+		//	e.printStackTrace();
+		//}
 		//
 	}
 }
