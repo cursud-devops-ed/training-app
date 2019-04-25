@@ -82,8 +82,8 @@ static Connection conn = null;
 			log("-------- Afficher toutes les sessions de formations ------------");
 			//getDataFromDB();
 
-			statement.close();
-			conn.close(); // Fermer la connexion
+			//statement.close();
+			//conn.close(); // Fermer la connexion
  
 		} catch (SQLException e) {
  
