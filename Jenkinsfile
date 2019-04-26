@@ -36,7 +36,7 @@ node {
          sh "'${mvnHome}/bin/mvn' -DdeployOnly deploy"
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.skip=true deploy -s "C:\apache-maven-3.6.0\conf\settings.xml"/)
-      }
+      }//
    }
    
    stage('Execute Jar') {
