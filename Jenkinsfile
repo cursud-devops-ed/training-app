@@ -6,31 +6,30 @@ node {
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
-      mvnHome = tool 'Maven 3'
+      mvnHome = tool 'Maven3'
    }
-        
+     
+    stage('Test') {
+      if (isUnix()) {
+         
+      } else {
+         bat(/"${mvnHome}\bin\mvn" clean test/)
+      }
+   }  
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore  build"
       } else {
-         bat(/"${mvnHome}\bin\mvn" -B -DskipTests -Dmaven.test.failure.ignore  package/)
+         bat(/"${mvnHome}\bin\mvn" -B -DskipTests -Dmaven.test.failure.ignore package/)
       }
    }
-   
-   stage('Test') {
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' test"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" test/)
-      }
-   }
-   
+     
    stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts  'target/*.jar'
    }
-   
+
       stage('Publish Artefact') {
        // 
       if (isUnix()) {
@@ -47,4 +46,6 @@ node {
          bat(/java -jar target\/training-app-1.0-jar-with-dependencies.jar/)
       }
    }
+}
+
 }
