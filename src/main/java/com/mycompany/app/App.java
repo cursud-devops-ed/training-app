@@ -77,7 +77,7 @@ static Connection conn = null;
 	public static void main(String[] argv) {
  
 		//try {
-			log("-------- Connexion au serveur de données MYSQL ------------");
+			log("-------- Connexion au serveur de données MYSQL  Walid ------------");
 			//makeJDBCConnection();
 			log("-------- Afficher toutes les sessions de formations ------------");
 			//getDataFromDB();
